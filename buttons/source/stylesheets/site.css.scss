@@ -1,0 +1,202 @@
+@charset "utf-8";
+@import "normalize";
+
+.container {
+  padding: 20px;
+}
+.content__pic {
+  border-bottom: 1px solid #e5e5e5;
+  display: inline-block;
+  padding-bottom: 10px;
+  position: relative;
+
+  img {
+    width: 300px;
+  }
+}
+
+.like-button {
+  color: #7f7f7f;
+  display: block;
+  font-family: Arial;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 5px; 
+  padding: 4px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@keyframes icon {
+    0%   {
+      opacity: 0;
+      top: 80px;
+      transform: scale(.1);
+      visibility: hidden;
+    }
+
+    50% {
+      transform: scale(1);
+    }
+
+    100% {
+      opacity: 1;
+      top: 0;
+      transform: scale(1);
+      visibility: visible;
+    }
+}
+
+.content__buttons {
+  display: inline-block;
+  position: relative;
+
+  transition: all .1s ease;
+
+  &:hover {
+    .content__reaction-box {
+      opacity: 1; 
+      visibility: visible;
+
+      transition-delay: .8s;
+    }
+
+    .content__reaction-item {
+      animation-name: icon;
+      animation-duration: .45s;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(.61,.52,.34,1.46);
+      
+
+      &:nth-child(1) {
+        animation-delay: .75s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: .78s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: .81s;
+      }
+
+      &:nth-child(4) {
+        animation-delay: .84s;
+      }
+
+      &:nth-child(5) {
+        animation-delay: .87s;
+      }
+
+      &:nth-child(6) {
+        animation-delay: .90s;
+      }
+    }
+  }
+}
+
+.content__reaction-box {
+  background: white;
+  border-radius: 30px;
+  border: 1px solid #d2cfcf;
+  display: inline-block;
+  opacity: 0;  
+  padding: 6px 3px 0;
+  position: absolute;
+  top: -52px;
+  visibility: hidden;  
+  white-space: nowrap;
+
+  transition: all .1s linear;
+}
+
+.content__reaction-item {
+  display: inline-block;
+  margin: 0 2px;
+  opacity: 0;
+  position: relative;
+  top: 80px;
+
+  transition: all .1s linear;
+
+  &:hover .content__icon-title {
+    opacity: .5;
+    top: -44px;
+
+    transform: scale(1);
+  }
+}
+
+.content__icon-title {
+  background: black;
+  border-radius: 15px;
+  color: white;
+  font-family: Arial;
+  font-size: 12px;
+  opacity: .6;
+  opacity: 0;
+  padding: 3px 10px;
+  position: absolute;
+  top: 1px;
+
+  transform: scale(.6);
+  transition: all .3s ease;
+}
+
+.content__icon {
+  background: url('https://en.facebookbrand.com/wp-content/uploads/2016/09/reactions-preview-px2.png');
+  background-size: 294px;
+  cursor: pointer;
+  height: 40px;
+  margin: 0 auto;
+  width: 40px;
+
+  transition: all .2s ease;
+
+
+  &--like {
+    @extend .content__icon;
+    background-position: -12px;
+  }
+
+  &--love {
+    @extend .content__icon;
+    background-position: -59px;
+  }
+
+  &--haha {
+    @extend .content__icon;
+    background-position: -106px;
+  }
+
+  &--wow {
+    @extend .content__icon;
+    background-position: -151px;
+  }
+
+  &--sad {
+    @extend .content__icon;
+    background-position: -198px;
+  }
+
+  &--angry {
+    @extend .content__icon;
+    background-position: -243px;
+  }
+
+  &:hover {
+   top: -9px;
+   position: relative;
+
+   transform: scale(1.3,1.3);
+  }
+}
+
+
+
+
+
+
